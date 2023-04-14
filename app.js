@@ -2,6 +2,8 @@ const express = require("express");
 const morgan = require("morgan");
 const doctorRoutes = require("./routes/doctorRoutes");
 const patientRoutes = require("./routes/patientRoutes");
+const appointmentRoutes = require("./routes/appointmentRoutes");
+const prescriptionRoutes = require("./routes/appointmentRoutes");
 
 const app = express();
 
@@ -20,5 +22,7 @@ app.use((req, res, next) => {
 
 app.use("/doctors", doctorRoutes);
 app.use("/patients", patientRoutes);
+app.use("/appointments", appointmentRoutes);
+app.use("/prescriptions", prescriptionRoutes);
 
 module.exports = app;

@@ -1,13 +1,14 @@
-const Patient = require("../Model/patientModel");
+const Prescription = require("../Model/prescriptionModel");
 
-exports.createPatient = async (req, res) => {
+exports.createPrescription = async (req, res) => {
   try {
-    const newPatient = await Patient.create(req.body);
+    const newPrescription = await Prescription.create(req.body);
 
-    res.status(201).json({
-      status: "success",
+    res.status(200).json({
+      message: "success",
+      status: 200,
       data: {
-        patients: newPatient,
+        prescriptions: newPrescription,
       },
     });
   } catch (err) {
@@ -18,9 +19,9 @@ exports.createPatient = async (req, res) => {
   }
 };
 
-exports.updatePatient = async (req, res) => {
+exports.updatePrescription = async (req, res) => {
   try {
-    const newPatient = await Patient.findByIdAndUpdate(
+    const newPrescription = await Prescription.findByIdAndUpdate(
       req.params.id,
       req.body,
       {
@@ -32,7 +33,7 @@ exports.updatePatient = async (req, res) => {
     res.status(200).json({
       status: "success",
       data: {
-        patients,
+        prescriptions,
       },
     });
   } catch (err) {
@@ -43,9 +44,9 @@ exports.updatePatient = async (req, res) => {
   }
 };
 
-exports.deletePatient = async (req, res) => {
+exports.deletePrescription = async (req, res) => {
   try {
-    const newPatient = await Patient.findByIdAndDelete(req.params.id);
+    const newPrescription = await Prescription.findByIdAndDelete(req.params.id);
 
     res.status(200).json({
       status: "success",
