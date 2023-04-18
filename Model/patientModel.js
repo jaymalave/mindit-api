@@ -22,7 +22,7 @@ const patientSchema = new mongoose.Schema({
     trim: true,
   },
 
-  profilePictue: {
+  profilePicture: {
     type: String,
   },
 });
