@@ -25,6 +25,10 @@ const patientSchema = new mongoose.Schema({
   profilePicture: {
     type: String,
   },
+  doctorId: {
+    type: mongoose.Schema.ObjectId,
+    ref: "Doctor",
+  },
 });
 
 const Patient = mongoose.model("patient", patientSchema);

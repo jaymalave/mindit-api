@@ -1,5 +1,23 @@
 const Doctor = require("../Model/doctorModel");
 
+exports.fetchDoctors = async (req, res) => {
+  try {
+    const doctors = await Doctor.find();
+
+    res.status(200).json({
+      status: "success",
+      data: {
+        doctors,
+      },
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: "fail",
+      message: err,
+    });
+  }
+};
+
 exports.createDoctor = async (req, res) => {
   try {
     const newDoctor = await Doctor.create(req.body);
